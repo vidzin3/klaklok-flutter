@@ -32,32 +32,51 @@ class MyAppBody extends State<MyAppContribute>{
 
   var rng = new Random();
   var init = 0;
-  var ran1 = ["blank","bongkong","kdam","kla","klok","morn","trey"];
-  var ran2 = ["blank","bongkong","kdam","kla","klok","morn","trey"];
-  var ran3 = ["blank","bongkong","kdam","kla","klok","morn","trey"];
+  var ran1 = ["blank","bongkong","kdam","trey","kla","klok","morn"];
+  var ran2 = ["blank","bongkong","kdam","trey","kla","klok","morn"];
+  var ran3 = ["blank","bongkong","kdam","trey","kla","klok","morn"];
 
   int ran1Index = 2;
   int ran2Index = 2;
   int ran3Index = 2;
 
-  void RandomNumber() {
-    setState(() {
-      ran1Index = rng.nextInt(6) + 1;
-      ran2Index = rng.nextInt(6) + 1;
-      ran3Index = rng.nextInt(6) + 1;
+  int altRan1Index = 2;
+  int altRan2Index = 2;
+  int altRan3Index = 2;
 
-
-      // ran1 = rng.nextInt(6);
-      // ran2 = rng.nextInt(6);
-      // ran3 = rng.nextInt(6);
-    });
-  }
-
-  void restart() {
+  void closeDist() {
     setState(() {
       ran1Index = 0;
       ran2Index = 0;
-      ran3Index = 0;  
+      ran3Index = 0;   
+    });
+  }
+
+  void RandomNumber() async {
+    final iterations = 8;
+
+    for (int i = 0; i < iterations; i++) {
+      int delay = 1 + i * (50+50);
+      await Future.delayed(Duration(milliseconds:delay));
+      setState(() {
+        ran1Index = rng.nextInt(6) + 1;
+        ran2Index = rng.nextInt(6) + 1;
+        ran3Index = rng.nextInt(6) + 1;
+      });
+    }
+
+    closeDist();
+
+    altRan1Index = rng.nextInt(6) + 1;
+    altRan2Index = rng.nextInt(6) + 1;
+    altRan3Index = rng.nextInt(6) + 1;
+  }
+
+  void openDist() {
+    setState(() {
+      ran1Index = altRan1Index;
+      ran2Index = altRan2Index;
+      ran3Index = altRan2Index;  
     });
   }
 
@@ -116,7 +135,7 @@ class MyAppBody extends State<MyAppContribute>{
                     ),
                   ),
                 ),
-                const SizedBox(height: 150),
+                const SizedBox(height: 130),
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +167,7 @@ class MyAppBody extends State<MyAppContribute>{
                     ],
                   ),
                 ),
-                const SizedBox(height: 150),
+                const SizedBox(height: 130),
                 ElevatedButton(
                   onPressed: () {
                     RandomNumber();
@@ -158,9 +177,9 @@ class MyAppBody extends State<MyAppContribute>{
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    restart();
+                    openDist();
                   },
-                  child: const Text('បិទចាន'),
+                  child: const Text('បើកចាន'),
                 ),         
               ],
             )
