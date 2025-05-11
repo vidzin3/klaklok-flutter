@@ -35,6 +35,7 @@ class MyAppBody extends State<MyAppContribute>{
   var ran1 = ["blank","bongkong","kdam","trey","kla","klok","morn"];
   var ran2 = ["blank","bongkong","kdam","trey","kla","klok","morn"];
   var ran3 = ["blank","bongkong","kdam","trey","kla","klok","morn"];
+  var layout_game = ["bongkong","kdam","trey","kla","klok","morn"];
 
   int ran1Index = 2;
   int ran2Index = 2;
@@ -76,7 +77,7 @@ class MyAppBody extends State<MyAppContribute>{
     setState(() {
       ran1Index = altRan1Index;
       ran2Index = altRan2Index;
-      ran3Index = altRan2Index;  
+      ran3Index = altRan3Index;  
     });
   }
 
@@ -135,7 +136,79 @@ class MyAppBody extends State<MyAppContribute>{
                     ),
                   ),
                 ),
-                const SizedBox(height: 130),
+                const SizedBox(height: 100),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Image.asset(
+                          '../assets/images/${layout_game[3]}.jpg',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Image.asset(
+                          '../assets/images/${layout_game[4]}.jpg',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Image.asset(
+                          '../assets/images/${layout_game[5]}.jpg',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Image.asset(
+                          '../assets/images/${layout_game[0]}.jpg',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Image.asset(
+                          '../assets/images/${layout_game[1]}.jpg',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(left: 10, right: 10),
+                        child: Image.asset(
+                          '../assets/images/${layout_game[2]}.jpg',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                // divider
+                Container(
+                  margin: EdgeInsets.only(top: 20,bottom: 20),
+                  width: 550,
+                  height: 2,
+                  color: Color.fromARGB(255, 179, 176, 176),
+                ),
+                // random image
                 Container(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -167,7 +240,7 @@ class MyAppBody extends State<MyAppContribute>{
                     ],
                   ),
                 ),
-                const SizedBox(height: 130),
+                const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
                     RandomNumber();
