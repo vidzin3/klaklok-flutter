@@ -47,9 +47,9 @@ class MyAppBody extends State<MyAppContribute>{
 
   void closeDist() {
     setState(() {
-      ran1Index = 0;
-      ran2Index = 0;
-      ran3Index = 0;   
+      ran1Index = init;
+      ran2Index = init;
+      ran3Index = init;   
     });
   }
 
